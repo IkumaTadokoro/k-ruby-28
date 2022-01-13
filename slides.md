@@ -1,44 +1,36 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
+theme: default
+background: /david-edelstein-N4DbvTUDikw-unsplash.jpg
 class: 'text-center'
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
+download: true
+highlighter: 'prism'
+lineNumbers: true
+colorSchema: 'dark'
+aspectRatio: '16/9'
 drawings:
   persist: false
+fonts:
+  sans: 'Noto Sans JP'
+
 ---
 
-# Welcome to Slidev
+<div class="font-black text-8xl">
+  
+# はじめてのGemを作った話
 
-Presentation slides for developers
+</div>
+<span class="font-800 text-2xl text-lime-100">日本の地方公共団体コードを扱うためのGem「jp_local_gov」</span>
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
+<div class="absolute bottom-10 left-16">
+  <span class="font-700 text-xl">
+    2022-01-20 K-Ruby#28
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
+<div class="absolute bottom-10 right-16">
+  <span class="font-700 text-xl">
+    @ikuma-t
+  </span>
 </div>
 
 <!--
@@ -47,337 +39,257 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
-# What is Slidev?
+# 目次
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+1. 自己紹介
+2. 作ったGemの紹介
+3. 工夫したところ
+4. 感想
 
 ---
 
-# Navigation
+# 自己紹介
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+K-Rubyは初参加です！よろしくお願いします😄
 
-### Keyboard Shortcuts
+<div class="grid grid-cols-2 gap-4">
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+- 名前：@ikuma-t
+- #fjordbootcampで学習中です！！
+- 趣味：ツール・自動化、作曲家巡り、ドット絵![](/tanukituneko.png)
+- 住んでいるところ：千葉県
+- 今年のお正月は鹿児島黒牛の牛しゃぶを食べました@千葉
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+<div class="flex flex-col">
 
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}  
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+![](/fjord.png)
+![](/kurogewagyu.png)
 
 </div>
-<div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
 </div>
 
 
 ---
-class: px-20
+class: 'text-center'
 ---
 
-# Themes
+<div class="absolute top-60 right-90">
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
+<h1 class="text-8xl">作ったGemの紹介</h1>
 
 </div>
 
 ---
 
-# LaTeX
+# Gem：jp_local_gov
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+<v-clicks>
+<div class="my-4">
 
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
+### 概要
 
 </div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+
+- 日本の地方公共団体コードをパースしてくれるGem
+- > 全国地方公共団体コードは、日本の地方公共団体につけられた、数字3桁または5桁または6桁の符号（コード）である <br> [全国地方公共団体コード：Wikipedia](https://ja.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E5%9C%B0%E6%96%B9%E5%85%AC%E5%85%B1%E5%9B%A3%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89)
+- 例えば鹿児島県鹿児島市は、`462012`というコードが割り振られている。
+
+</v-clicks>
+
+<v-clicks>
+<div class="my-4">
+
+### 主な機能 
+
+</div>
+
+
+1. 地方公共団体コードからの地方公共団体情報の取得（正引き）
+2. AND条件検索での地方公共団体情報の取得
+3. 【Rails】Modelに地方公共団体コードを扱うメソッドを拡張する
+
+</v-clicks>
+
+---
+
+# コードの変換
+
+<div class="mt-4">
+
+<v-clicks>
+
+<div class="my-4">
+
+### 地方公共団体コード → 地方公共団体の情報
+
+</div>
+
+```ruby {1|3|6|7|2-10}
+JpLocalGov.find('462012')
+# <JpLocalGov::LocalGov:0x000000010c4cd670                   
+#  @city="鹿児島市", 
+#  @city_kana="カゴシマシ",
+#  @code="462012",
+#  @prefecture="鹿児島県",
+#  @prefecture_capital=true,
+#  @prefecture_code="46",
+#  @prefecture_kana="カゴシマケン"
+# >          
+```
+
+<div class="my-4">
+
+### 地方公共団体を条件検索
+
+</div>
+
+```ruby {1,2|4,5,6}
+# 複数条件でAND検索が可能
+kagoshima = JpLocalGov.where(prefecture: '鹿児島県', prefecture_capital: true)
+
+# 条件によっては複数ヒットする可能性もあるので、戻り値はArray
+kagoshima.map(&:city)
+# ["鹿児島市"]
+```
+
+</v-clicks>
+
+</div>
 
 
 ---
-layout: center
-class: text-center
+
+# Railsで使用する
+
+- Modelクラスに`include`することで、地方公共団体コード関連の拡張メソッドを使用することができる。
+- DBには地方公共団体コードさえ保持していればOK
+
+<v-clicks>
+
+```ruby
+# app/models/insurance_fee.rb:
+class InsuranceFee < ActiveRecord::Base
+  include JpLocalGov
+  jp_local_gov :local_gov_code
+end
+```
+
+```ruby
+# app/controllers/insurance_fee_controller.rb:
+class InsuranceFeeController < ActionController
+  def index
+    @insurance_fees = InsuranceFee.all
+  end
+end
+```
+
+```ruby {3-4}
+# app/views/insurance_fee/index.html.erb
+<% @insurance_fees.each do |insurance_fee| %>
+  <p><%= insurance_fee.local_government.city %></p>
+  # DBに保存された地方公共団体コードに紐づく、地方公共団体名が表示される。
+<% end %>
+```
+
+</v-clicks>
+
 ---
 
-# Learn More
+# どうして作ったのか
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+自作サービスで必要だったので...
+
+![](/img_1.png)
+
+<v-clicks>
+
+- 自作サービスで地方公共団体ごとにレコードを持つ必要があった
+- ちゃんとDBを正規化すると、「地方公共団体テーブル」が必要
+- 「だるいなあ、なんかGemないかなあ」
+- 「一応あったけど、データが更新されてなくて使えない & 自分の欲しい機能がない」
+- 作るか！！！！🔥
+
+</v-clicks>
+
+<v-after>
+
+...なお自作サービスは鋭意製作中です
+
+</v-after>
+
+---
+
+# 工夫したところ①：データ更新処理の自動化
+
+- 似たようなアイデアのGemはあったが、更新が4年以上前で、最新のデータに対応していない
+- Gemの実装自体は複雑なものではないので、データ更新作業がボトルネック：**→自動化しよう🦀**
+
+![](/auto-update.png)
+
+---
+
+# 工夫したところ②：RBSの導入
+
+<div class="grid grid-cols-2 gap-4">
+
+<v-clicks>
+
+- `bundle gem`した数日後にTLに流れてきた
+- でかいGemじゃないので型定義の恩恵はあまりないけれど、「小さなRubyistもRBSを見ているぞ！Ruby好きだぞ！」という謎アピール
+- RBSファイルの自動生成スクリプト、CIでのSteepによるチェックまで導入
+![](/steep_check.png)
+- たぶんRBSファイルよりも<del>余計な</del>自動化スクリプトの方が長いくらい
+
+</v-clicks>
+
+
+
+<Tweet id="1465868273681985536" />
+
+</div>
+
+---
+
+# 感想：初めてGemを作ってみて
+
+<div class="my-4">
+
+### 作り手になることで、よりOSSが身近になった
+
+</div>
+
+<v-clicks>
+
+- 今までもGemを使っている箇所に当たったら、ソースリーディングとかはしていた。
+  - MinitestとかOmniAuthとかRailsとか
+- けど作ってみたのは初めて
+- 作る側になることで、今まで機能しか見ていなかったところから、それ以外の構成とか、メンテナの労力もわずかながらわかるようになった
+
+</v-clicks>
+
+---
+
+# 感想：初めてGemを作ってみて
+
+<div class="my-4">
+
+### もっと強くなりてえな
+
+</div>
+
+<div class="grid grid-cols-2 gap-4">
+
+<v-clicks>
+
+- 静的型チェッカーのSteepはActiveSupport7.0にあげると動かない（2022/01/13時点）
+- このGemもテストコードでActiveRecordを利用しているため、影響があった。が、自分ではPRは送れなかった...。
+- 自分はただIssueに👍をつけるだけで精一杯だった...。
+- もっと力をつけて、OSSを利用する側であるとともに、OSSに貢献できるように、今年も勉強頑張りたい💪
+
+</v-clicks>
+
+![](/steep-issue.png)
+
+</div>
