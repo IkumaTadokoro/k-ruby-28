@@ -54,15 +54,27 @@ K-Rubyは初参加です！よろしくお願いします😄
 
 <div class="grid grid-cols-2 gap-4">
 
-- 名前：@ikuma-t
-- #fjordbootcampで学習中です！！
-- 趣味：ツール・自動化、作曲家巡り、ドット絵![](/tanukituneko.png)
+- 名前：ikuma-t 
+  - <a href="https://github.com/IkumaTadokoro" target="_blank"><img alt="Github" src="https://img.shields.io/badge/IkumaTadokoro-%2312100E.svg?&style=flat-square&logo=Github&logoColor=white" class="inline" /></a>
+<a href="https://twitter.com/ikumatdkr" target="_blank"><img alt="Twitter" src="https://img.shields.io/badge/@ikuma-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white" class="mx-1 inline" /></a>
+<a href="https://zenn.dev/ikuma" target="_blank"><img alt="Zenn" src="https://img.shields.io/badge/ikuma-3EA8FF.svg?&style=flat-square&logo=Zenn&logoColor=white" class="mx-1 inline" /></a>
+<a href="https://speakerdeck.com/ikumatadokoro" target="_blank"><img alt="SpeakerDeck" src="https://img.shields.io/badge/ikuma_t-009287.svg?&style=flat-square&logo=SpeakerDeck&logoColor=white" class="mx-1 inline" /></a>
+- [#fjordbootcamp](https://twitter.com/hashtag/fjordbootcamp)で学習中です！！
+- 趣味：ツール・自動化、作曲家巡り、ドット絵
 - 住んでいるところ：千葉県
 - 今年のお正月は鹿児島黒牛の牛しゃぶを食べました@千葉
 
+
 <div class="flex flex-col">
 
-![](/fjord.png)
+<div class="flex flex-row justify-around">
+
+<img src="/ikuma-t.png" class="w-30 rounded-full"/>
+<img src="/fjord.png" class="w-30 rounded-full" />
+<img src="/chiba.png" class="w-30 h-30 rounded-full" />
+
+</div>
+
 ![](/kurogewagyu.png)
 
 </div>
@@ -74,9 +86,9 @@ K-Rubyは初参加です！よろしくお願いします😄
 class: 'text-center'
 ---
 
-<div class="absolute top-60 right-90">
+<div class="absolute top-60 right-80">
 
-<h1 class="text-8xl">作ったGemの紹介</h1>
+<h1 class="text-8xl font-black">🦀作ったGemの紹介🦀</h1>
 
 </div>
 
@@ -91,7 +103,8 @@ class: 'text-center'
 
 </div>
 
-
+- [GitHub](https://github.com/IkumaTadokoro/jp_local_gov)
+- [RubyGems](https://rubygems.org/gems/jp_local_gov)
 - 日本の地方公共団体コードをパースしてくれるGem
 - > 全国地方公共団体コードは、日本の地方公共団体につけられた、数字3桁または5桁または6桁の符号（コード）である <br> [全国地方公共団体コード：Wikipedia](https://ja.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E5%9C%B0%E6%96%B9%E5%85%AC%E5%85%B1%E5%9B%A3%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89)
 - 例えば鹿児島県鹿児島市は、`462012`というコードが割り振られている。
